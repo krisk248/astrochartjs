@@ -6,7 +6,7 @@ Javascript library for drawing hindu astrological charts. You can look at demo o
 Usage
 -----
 
-###Html File
+### Html File
 
 * astrochartjs uses [snapsvg](http://snapsvg.io/) for rendering `svg` . So [download snapsvg](https://github.com/adobe-webplatform/Snap.svg/archive/v0.2.0.zip) and include `snap.svg.js` file from `dist` folder in your html. Eg.
 
@@ -23,10 +23,10 @@ Usage
 * Add a `svg` element to your html file with unique id. Eg:
 
 ```html
-<svg id="chart" />
+<svg id="chart"></svg>
 ```
 
-###Javascript
+### Javascript
 
 * Create instance of `AstroChart` by passing `id` of `svg` element in html. 
 
