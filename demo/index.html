@@ -1,43 +1,56 @@
 <!DOCTYPE html>
-
-<html>
-<head lang="en">
-    <script src="../lib/snapsvg/snap.svg.js"></script>
-
-    <meta charset="UTF-8"/>
-    <title>AstroChartJs Demo</title>
-
+<html lang="en">
+<head>
+    <script src="astrochartjs/lib/snapsvg/snap.svg.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-<body style="background-color: #F3EFE3">
-    <svg id="chart" width="600" height="400" />
-    <svg id="chart2" ></svg>
-    <script src="../dist/astrochart.js"></script>
+<body>
+    <svg id="chart" width="600" height="600">
+
+    </svg>
+    <script src="astrochartjs/dist/astrochart.js"></script>
     <script language="JavaScript">
 
-        var options = {'title':['Rasi' , '11/04/2014 07:00AM' ,'Erode, Tamil Nadu, India'],
-            'showHouseNumbers' : true,
+        var options = {'title':['உ'],
+            'showHouseNumbers' : false,
             'width':600,
-            'height':400};
-
+            'height':600};
+        options.styleSheet = "/astrochartjs/dist/themes/astrosoft.css"
         var astroChart = new AstroChart("#chart");
-     //   var astroChart2 = new AstroChart("#chart2");
-        astroChart.draw({1:["Su"], 2:["Su", "Asc"], 12:["Su", "Mo", "Ve", "Me", "Ra", "Ke", "Asc", "Ma", "Sa~R"]}, options);
-       // astroChart2.draw(["Su", "Mo"], options);
+        var house1 = ["Su"];
+        var house2 = ["Su", "Asc"];
+        var house3 = ["Asc", "Su"];
+        var house4 = [];
+        var house5 = [];
+        var house6 = [];
+        var house7 = [];
+        var house8 = [];
+        var house9 = [];
+        var house10 = [];
+        var house11 = [];
+        var house12 = ["Su", "Mo", "Ve", "Me", "Ra", "Ke", "Asc", "Ma", "Sa~R"];
 
-        var svg = document.querySelector( "#chart" );
-        var svgData = new XMLSerializer().serializeToString( svg );
+        astroChart.draw({
+            1: house1,
+            2: house2,
+            3: house3,
+            4: house4,
+            5: house5,
+            6: house6,
+            7: house7,
+            8: house8,
+            9: house9,
+            10: house10,
+            11: house11,
+            12: house12
+        }, options);
 
-        var canvas = document.createElement( "canvas" );
-        var ctx = canvas.getContext( "2d" );
+    astroChart.draw(chartData, options);
+    </script>
 
-        var img = document.createElement( "img" );
-        img.setAttribute( "src", "data:image/svg+xml;base64," + btoa( svgData ) );
-        console.log(svgData);
-      //  img.onload = function() {
-            ctx.drawImage( img, 0, 0 );
-// Now is done
-            console.log( canvas.toDataURL( "image/png" ) );
-        //};
-     </script>
+
+
 </body>
 </html>
