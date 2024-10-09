@@ -25,6 +25,45 @@ Usage
 ```html
 <svg id="chart"></svg>
 ```
+### CSS
+* while working i found that CSS loaded sepratly does not work it give a black screen. So i feel the Best practice would be to addd the style for the svg inside the svg tag.
+
+```html
+<svg id="chart" width="600" height="600">
+            <style type="text/css">
+                <![CDATA[rect.house {
+                    stroke: #FF00FF;
+                    fill: #F3EFE3;
+                }
+                rect.chart {
+                    fill: #F3EFE3;
+                }
+                text.house {
+                    font-family : Consolas;
+                    font-weight: bold;
+                    font-size: 16px;
+                    fill : #4867D6;
+                }
+                text.title {
+                    font-family: Helvetica, Arial, san-serif;
+                    font-weight: 700;
+                    font-size : 16px;
+                    fill : #248F40;
+                    text-anchor: middle;
+                }
+                text.retrograde {
+                    fill:#04819E;
+                }
+                #Asc {
+                    fill:#FF1E00;
+                }
+                #Mo {
+                    fill:#A61300
+                }
+                ]]>
+            </style>
+        </svg>
+```
 
 ### Javascript
 
