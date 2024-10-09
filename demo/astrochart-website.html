@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstroChart Interactive</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script>
+    <script src="./astrochartjs/dist/astrochart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        #chart-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        #inputs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h1>AstroChart Interactive</h1>
+    <div id="inputs">
+        <!-- Input fields for houses 1 to 12 -->
+        <div>
+            <label for="house1">House 1:</label>
+            <input type="text" id="house1" placeholder="e.g., Su,Mo,Ve">
+        </div>
+        <div>
+            <label for="house2">House 2:</label>
+            <input type="text" id="house2" placeholder="e.g., Ma,Ju">
+        </div>
+        <div>
+            <label for="house3">House 3:</label>
+            <input type="text" id="house3" placeholder="e.g., Sa,Ra">
+        </div>
+        <div>
+            <label for="house4">House 4:</label>
+            <input type="text" id="house4">
+        </div>
+        <div>
+            <label for="house5">House 5:</label>
+            <input type="text" id="house5">
+        </div>
+        <div>
+            <label for="house6">House 6:</label>
+            <input type="text" id="house6">
+        </div>
+        <div>
+            <label for="house7">House 7:</label>
+            <input type="text" id="house7">
+        </div>
+        <div>
+            <label for="house8">House 8:</label>
+            <input type="text" id="house8">
+        </div>
+        <div>
+            <label for="house9">House 9:</label>
+            <input type="text" id="house9">
+        </div>
+        <div>
+            <label for="house10">House 10:</label>
+            <input type="text" id="house10">
+        </div>
+        <div>
+            <label for="house11">House 11:</label>
+            <input type="text" id="house11">
+        </div>
+        <div>
+            <label for="house12">House 12:</label>
+            <input type="text" id="house12">
+        </div>
+    </div>
+    <div id="chart-container">
+        <svg id="chart" width="600" height="600">
+            <style type="text/css">
+                <![CDATA[rect.house {
+                    stroke: #FF00FF;
+                    fill: #F3EFE3;
+                }
+                rect.chart {
+                    fill: #F3EFE3;
+                }
+                text.house {
+                    font-family : Consolas;
+                    font-weight: bold;
+                    font-size: 16px;
+                    fill : #4867D6;
+                }
+                text.title {
+                    font-family: Helvetica, Arial, san-serif;
+                    font-weight: 700;
+                    font-size : 16px;
+                    fill : #248F40;
+                    text-anchor: middle;
+                }
+                text.retrograde {
+                    fill:#04819E;
+                }
+                #Asc {
+                    fill:#FF1E00;
+                }
+                #Mo {
+                    fill:#A61300
+                }
+                ]]>
+            </style>
+        </svg>
+    </div>
+    <script>
+        const astroChart = new AstroChart("#chart");
+        const inputs = document.querySelectorAll('input');
+
+        function updateChart() {
+            const chartData = {};
+            inputs.forEach(input => {
+                const houseNumber = parseInt(input.id.replace('house', ''));
+                const planets = input.value.split(',').map(p => p.trim()).filter(p => p);
+                if (planets.length > 0) {
+                    chartData[houseNumber] = planets;
+                }
+            });
+
+            const options = {
+                'width': 600,
+                'height': 600,
+                'showHouseNumbers': true,
+                'title': ['AstroChart', 'Interactive Demo']
+            };
+            astroChart.draw(chartData, options);
+        }
+
+        inputs.forEach(input => {
+            input.addEventListener('input', updateChart);
+        });
+
+        // Initial chart render
+        updateChart();
+    </script>
+</body>
+</html>
