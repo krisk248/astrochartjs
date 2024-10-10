@@ -5,7 +5,7 @@
 * AstroChart is the top level class that provides api to draw hindu astrological charts
 *
 * @author Rajasekar Elango
-*
+* @edited for my need kannan
 /
  */
 
@@ -224,8 +224,8 @@
       CELL_TOTAL_ROWS: 3,
       CELL_TOTAL_COLS: 3,
       DEFAULT_STYLE_SHEET: "../dist/themes/default.css",
-      HOUSE_NUMBER_WIDTH_OFFSET_PERCENT: 0.90,
-      HOUSE_NUMBER_HEIGHT_OFFSET_PERCENT: 0.5
+      HOUSE_NUMBER_WIDTH_OFFSET_PERCENT: 0.85,
+      HOUSE_NUMBER_HEIGHT_OFFSET_PERCENT: 0.15
     };
     return {
       get: function(name) {
