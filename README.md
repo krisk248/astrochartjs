@@ -31,7 +31,7 @@ Usage
 ```html
 <svg id="chart" width="600" height="600">
             <style type="text/css">
-                <![CDATA[rect.house {
+                rect.house {
                     stroke: #FF00FF;
                     fill: #F3EFE3;
                 }
@@ -60,7 +60,6 @@ Usage
                 #Mo {
                     fill:#A61300
                 }
-                ]]>
             </style>
         </svg>
 ```
