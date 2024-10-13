@@ -157,7 +157,7 @@
       fill: 'red',
       'font-size': '12px'
     });
-    rasiText.transform('r-45,' + (housePosition.x + 5) + ',' + (housePosition.y + 20));
+    rasiText.transform('r-0,' + (housePosition.x + 5) + ',' + (housePosition.y + 20));
   };
 
   drawTitle = function(svg, chartPosition, chartSize, title) {
